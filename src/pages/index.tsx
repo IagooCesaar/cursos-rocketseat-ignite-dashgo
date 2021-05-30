@@ -6,7 +6,7 @@ import {
 
 import { Input } from '../components/Form/Input'
 
-export default function Home() {
+export default function SignIn() {
   return (
     <Flex
       w='100vw'
@@ -23,28 +23,12 @@ export default function Home() {
         borderRadius='8'
         flexDir="column"
       >
-        <Stack
-          spacing='4'
-        >
-          <Input
-            label="E-mail"
-            name='email'
-            type='email'
-          />
-
-          <Input
-            label="Senha"
-            name='password'
-            type='password'
-          />
+        <Stack spacing='4'>
+          <Input name='email' type='email' label="E-mail" />
+          <Input name='password' type='password' label="Senha" />
         </Stack>
 
-        <Button
-          type="submit"
-          mt="6"
-          colorScheme='pink'
-          size='lg'
-        >
+        <Button type="submit" mt="6" colorScheme='pink' size='lg' >
           Entrar
         </Button>
       </Flex>
