@@ -17,8 +17,29 @@ export default function Home() {
         borderRadius='8'
         flexDir="column"
       >
-        <Input type='email' name='email' />
-        <Input type='password' name='password' />
+        <Input
+          type='email'
+          name='email'
+          focusBorderColor='pink.500'
+          bgColor="gray.900"
+          variant='filled'
+          _hover={{
+            bgColor: 'gray.900'
+          }}
+          size='lg'
+        />
+
+        <Input
+          type='password'
+          name='password'
+          focusBorderColor='pink.500'
+          bgColor="gray.900"
+          variant='filled'
+          _hover={{
+            bgColor: 'gray.900'
+          }}
+          size='lg'
+        />
 
         <Button
           type="submit"
