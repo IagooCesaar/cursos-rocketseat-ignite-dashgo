@@ -3,7 +3,9 @@ import {
   Input,
   Text,
   Icon,
-  HStack
+  HStack,
+  Box,
+  Avatar,
 } from '@chakra-ui/react'
 import {
   RiNotificationLine,
@@ -74,6 +76,18 @@ export function Header() {
           <Icon as={RiNotificationLine} fontSize='20' />
           <Icon as={RiUserAddLine} fontSize='20' />
         </HStack>
+        <Flex
+          align='center'
+        >
+          <Box mr='4' textAlign='right'>
+            <Text>Iago César F. Nogueira</Text>
+            <Text color='gray.300' fontSize='small'>
+              iagocesar.sgs@gmail.com
+            </Text>
+          </Box>
+          <Avatar size='md' name='Iago César' />
+
+        </Flex>
       </Flex>
     </Flex>
   )
