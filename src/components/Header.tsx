@@ -76,6 +76,7 @@ export function Header() {
           <Icon as={RiNotificationLine} fontSize='20' />
           <Icon as={RiUserAddLine} fontSize='20' />
         </HStack>
+
         <Flex
           align='center'
         >
@@ -85,7 +86,7 @@ export function Header() {
               iagocesar.sgs@gmail.com
             </Text>
           </Box>
-          <Avatar size='md' name='Iago César' />
+          <Avatar size='md' name='Iago César' src='https://github.com/iagoocesaar.png' />
 
         </Flex>
       </Flex>
