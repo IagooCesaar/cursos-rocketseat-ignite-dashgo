@@ -4,9 +4,14 @@ import {
   Box,
   Text,
 } from "@chakra-ui/react";
+import dynamic from 'next/dynamic';
+
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
-import Chart from 'react-apexcharts';
+
+const Chart = dynamic(() => import('react-apexcharts'), {
+  ssr: false, // impedindo componente de montar no lado do servidor Sever Side Rendering
+})
 
 const options = {
 
