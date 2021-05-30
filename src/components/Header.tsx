@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Input, Text } from '@chakra-ui/react'
 
 export function Header() {
   return (
@@ -21,6 +21,29 @@ export function Header() {
         dashgo
         <Text as='span' ml='1' color="pink.500" >.</Text>
       </Text>
+
+      <Flex
+        as='label'
+        flex='1'
+        py='4'
+        px='8'
+        ml='6'
+        maxWidth='400'
+        alignSelf='center'
+        color='gray.200'
+        position='relative'
+        bg='gray.800'
+        borderRadius='full'
+      >
+        <Input
+          color='gray.50'
+          variant='unstyled'
+          px='4'
+          mr='4'
+          placeholder='Buscar na plataforma'
+          _placeholder={{ color: 'gray.400' }}
+        />
+      </Flex>
     </Flex>
   )
 }
