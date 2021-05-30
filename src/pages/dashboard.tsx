@@ -50,6 +50,15 @@ const options = {
       '2021-06-04T00:00:00.000Z',
       '2021-06-05T00:00:00.000Z',
     ]
+  },
+  fill: {
+    opacity: 0.3,
+    type: 'gradient',
+    gradient: {
+      shade: 'dark',
+      opacityFrom: 0.7,
+      opacityTo: 0.3,
+    }
   }
 }
 const series = [
