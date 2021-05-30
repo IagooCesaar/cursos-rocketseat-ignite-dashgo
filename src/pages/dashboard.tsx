@@ -6,7 +6,16 @@ import {
 } from "@chakra-ui/react";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
+import Chart from 'react-apexcharts';
 
+const options = {
+
+}
+const series = [
+  {
+    name: 'series1', data: [31, 120, 10, 28, 61, 18, 109]
+  }
+]
 
 export default function Dashboard() {
   return (
@@ -24,6 +33,12 @@ export default function Dashboard() {
           // pb='4'
           >
             <Text fontSize='lg' mb='4'>Inscritos da semana</Text>
+            <Chart
+              type='area'
+              height={160}
+              options={options}
+              series={series}
+            />
           </Box>
           <Box
             pg='8'
