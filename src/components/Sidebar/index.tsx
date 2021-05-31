@@ -21,7 +21,7 @@ export function Sidebar() {
     return (
       <Drawer isOpen={true} placement='left' onClose={() => { }} >
         <DrawerOverlay>
-          <DrawerContent>
+          <DrawerContent bg='gray.800' p='4'>
             <DrawerCloseButton mt='6' />
             <DrawerHeader>Navegação</DrawerHeader>
             <DrawerBody>
