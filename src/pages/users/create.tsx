@@ -5,6 +5,8 @@ import {
   Divider,
   VStack,
   SimpleGrid,
+  HStack,
+  Button,
 } from "@chakra-ui/react";
 import React from "react";
 import { Input } from "../../components/Form/Input";
@@ -33,7 +35,12 @@ export default function CreateUser() {
               <Input name='password_confirmation' type='password' label='Confirmação da senha' />
             </SimpleGrid>
           </VStack>
-
+          <Flex mt='8' justify='flex-end'>
+            <HStack spacing='4'>
+              <Button colorScheme='whiteAlpha'>Cancelar</Button>
+              <Button colorScheme='pink'>Salvar</Button>
+            </HStack>
+          </Flex>
         </Box>
       </Flex>
     </Box>
