@@ -44,12 +44,14 @@ export default function SignIn() {
             name='email'
             type='email'
             label="E-mail"
+            error={errors.email}
             {...register('email')}
           />
           <Input
             name='password'
             type='password'
             label="Senha"
+            error={errors.password}
             {...register('password')}
           />
         </Stack>
