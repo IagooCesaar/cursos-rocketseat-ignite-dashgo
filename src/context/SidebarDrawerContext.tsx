@@ -1,16 +1,20 @@
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useContext } from "react";
+import { useDisclosure, UseDisclosureReturn } from "@chakra-ui/react";
 
 interface SidebarDrawerProviderProps {
   children: ReactNode;
 }
 
-const SidebarDrawerContext = createContext();
+type SidebarDrawerContextData = UseDisclosureReturn;
+
+const SidebarDrawerContext = createContext({} as SidebarDrawerContextData);
 
 export function SidebarDrawerProvider({
   children,
 }: SidebarDrawerProviderProps) {
+  const disclosure = useDisclosure();
   return (
-    <SidebarDrawerContext.Provider value={ }>
+    <SidebarDrawerContext.Provider value={disclosure}>
       {children}
     </SidebarDrawerContext.Provider>
   )
