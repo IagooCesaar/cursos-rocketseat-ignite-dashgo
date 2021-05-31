@@ -23,7 +23,9 @@ export default function CreateUser() {
           <Heading size='lg' fontWeight='normal'>Criar usuário</Heading>
           <Divider my='6' borderColor='gray.700' />
           <VStack spacing='8'>
+            <SimpleGrid minChildWidth='240px' spacing='8' w='100%'>
 
+            </SimpleGrid>
           </VStack>
         </Box>
       </Flex>
