@@ -18,9 +18,28 @@ import { Input } from "../../components/Form/Input";
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
 
+type CreateUserFormData = {
+  name: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+}
 
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
+const createUserFormSchema = yup.object().shape({
+  name: yup.string()
+    .required('Nome é obrigatório'),
+  email: yup.string()
+    .required('E-mail é obrigatório')
+    .email('E-mail inválido'),
+  password: yup.string()
+    .required('Senha é obrigatória')
+    .min(6, 'Senha deverá ter no mínimo 6 caracteres'),
+  password_confirmation: yup.string()
+    .required('Confirmação da senha é obrigatória')
+    .oneOf([
+      null, yup.ref('password')
+    ], "As senhas precisar ser iguais"),
+})
 
 export default function CreateUser() {
   return (
