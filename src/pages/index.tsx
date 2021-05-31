@@ -3,15 +3,20 @@ import {
   Button,
   Stack,
 } from '@chakra-ui/react'
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Input } from '../components/Form/Input'
+
+type SignInFormData = {
+  email: string;
+  password: string;
+}
 
 export default function SignIn() {
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
 
-  function handleSignIn(values) {
+  const handleSignIn: SubmitHandler<SignInFormData> = (values) => {
     console.log(values);
   }
 
