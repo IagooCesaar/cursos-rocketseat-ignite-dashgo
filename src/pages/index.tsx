@@ -45,14 +45,18 @@ export default function SignIn() {
             type='email'
             label="E-mail"
             error={errors.email}
-            {...register('email')}
+            {...register('email', {
+              required: 'E-mail obrigatório'
+            })}
           />
           <Input
             name='password'
             type='password'
             label="Senha"
             error={errors.password}
-            {...register('password')}
+            {...register('password', {
+              required: 'Senha é obrigatória'
+            })}
           />
         </Stack>
 
