@@ -35,7 +35,7 @@ export function Header() {
           icon={<Icon as={RiMenuLine} />}
           fontSize='24'
           variant='unstyled'
-          onCLick={onOpen}
+          onClick={onOpen}
           mr='2'
         />
       )}
