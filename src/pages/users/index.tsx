@@ -11,7 +11,8 @@ import {
   Checkbox,
   Tbody,
   Td,
-  Text
+  Text,
+  useBreakpointValue
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -22,6 +23,11 @@ import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  })
+
   return (
     <Box>
       <Header />
@@ -46,7 +52,7 @@ export default function UserList() {
                   <Checkbox colorScheme='pink' />
                 </Th>
                 <Th>Usuários</Th>
-                <Th>Data de cadastro</Th>
+                {isWideVersion && <Th>Data de cadastro</Th>}
                 <Th width='8'></Th>
               </Tr>
             </Thead>
@@ -61,7 +67,7 @@ export default function UserList() {
                     <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
+                {isWideVersion && <Td>04 de Abril, 2021</Td>}
                 <Td>
                   <Button
                     as='a'
@@ -84,7 +90,7 @@ export default function UserList() {
                     <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
+                {isWideVersion && <Td>04 de Abril, 2021</Td>}
                 <Td>
                   <Button
                     as='a'
@@ -107,7 +113,7 @@ export default function UserList() {
                     <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
                   </Box>
                 </Td>
-                <Td>04 de Abril, 2021</Td>
+                {isWideVersion && <Td>04 de Abril, 2021</Td>}
                 <Td>
                   <Button
                     as='a'
