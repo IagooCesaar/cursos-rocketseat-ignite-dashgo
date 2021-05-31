@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, ForwardRefRenderFunction } from 'react'
 import {
   FormControl,
   FormLabel,
@@ -11,11 +11,11 @@ interface InputProps extends ChakraInputProps {
   label?: string;
 }
 
-const InputBase = ({
+const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({
   name,
   label,
   ...rest
-}: InputProps, ref) => {
+}, ref) => {
   return (
     <FormControl>
       {!!label && <FormLabel htmlFor="password">{label}</FormLabel>}
