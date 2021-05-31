@@ -10,7 +10,13 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
+import { SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+
 import { Input } from "../../components/Form/Input";
+import { Header } from "../../components/Header";
+import { Sidebar } from "../../components/Sidebar";
 
 
 import { Header } from "../../components/Header";
