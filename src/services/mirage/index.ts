@@ -14,7 +14,9 @@ export function makeServer() {
 
     factories: {
       user: Factory.extend({
-        name() {},
+        name(i) {
+          return `User ${i+1}`
+        },
         email() {},
         createdAt() {},
       })
