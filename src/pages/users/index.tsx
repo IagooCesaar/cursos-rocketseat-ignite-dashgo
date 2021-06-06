@@ -32,7 +32,11 @@ export default function UserList() {
     const users = data.users.map(user => {
       return {
         ...user,
-        createdAt: new Date(user.createdAt).toLocaleDateString()
+        createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric'
+        })
       }
     });
     return users;
