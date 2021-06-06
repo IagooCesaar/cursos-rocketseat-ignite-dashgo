@@ -13,7 +13,8 @@ import {
   Td,
   Text,
   useBreakpointValue,
-  Spinner
+  Spinner,
+  Link,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
@@ -84,7 +85,9 @@ export default function UserList() {
                       </Td>
                       <Td>
                         <Box>
-                          <Text fontWeight='bold' >{user.name}</Text>
+                          <Link color="purple.400">
+                            <Text fontWeight='bold' >{user.name}</Text>
+                          </Link>
                           <Text fontSize='small' colr='gray.300' >{user.email}</Text>
                         </Box>
                       </Td>
