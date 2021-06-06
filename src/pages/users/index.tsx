@@ -41,10 +41,10 @@ export default function UserList({
 }: UserListProps) {
   const [page, setPage] = useState(1);
   const { data, isLoading, error, isFetching } = useUsers(page, {
-    initialData: {
-      users,
-      totalCount
-    },
+    // initialData: {
+    //   users,
+    //   totalCount
+    // },
   });
 
   async function handlePrefetchUser(userId: string) {
@@ -138,12 +138,12 @@ export default function UserList({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { users, totalCount } = await getUsers(1)
-  return {
-    props: {
-      users,
-      totalCount,
-    }
-  }
-}
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const { users, totalCount } = await getUsers(1)
+//   return {
+//     props: {
+//       users,
+//       totalCount,
+//     }
+//   }
+// }
