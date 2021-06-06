@@ -8,6 +8,12 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
+function generatePagesArray(from: number, to: number) {
+  return [new Array(to - from)].map((_, index) => {
+    return from + index + 1;
+  })
+}
+
 export function Pagination({
   totalCountOfRegisters,
   currentPage = 1,
