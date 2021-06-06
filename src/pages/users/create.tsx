@@ -20,6 +20,7 @@ import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
 import { api } from "../../services/api";
 import { queryClient } from "../../services/queryClient";
+import { useRouter } from "next/router";
 
 type CreateUserFormData = {
   name: string;
@@ -45,6 +46,8 @@ const createUserFormSchema = yup.object().shape({
 })
 
 export default function CreateUser() {
+  const router = useRouter();
+
   const createUser = useMutation(async (user: CreateUserFormData) => {
     const response = await api.post('/users', {
       user: {
@@ -65,7 +68,8 @@ export default function CreateUser() {
   const { errors, isSubmitting } = formState;
 
   const handleCreateUser: SubmitHandler<CreateUserFormData> = async (data) => {
-    await createUser.mutateAsync(data)
+    await createUser.mutateAsync(data);
+    router.push('/users')
   }
 
   return (
