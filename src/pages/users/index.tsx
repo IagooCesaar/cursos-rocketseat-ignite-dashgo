@@ -29,7 +29,13 @@ export default function UserList() {
   const { data, isLoading, error, } = useQuery('users', async () => {
     const response = await fetch('http://localhost:3000/api/users');
     const data = await response.json();
-    return data;
+    const users = data.users.map(user => {
+      return {
+        ...user,
+        createdAt: new Date(user.createdAt).toLocaleDateString()
+      }
+    });
+    return users;
   })
 
   const isWideVersion = useBreakpointValue({
