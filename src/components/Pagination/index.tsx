@@ -1,7 +1,21 @@
 import { Stack, Button, Box } from "@chakra-ui/react";
 import { PaginationItem } from "./PaginationItem";
 
-export function Pagination() {
+interface PaginationProps {
+  totalCountOfRegisters: number;
+  registersPerPage?: number;
+  currentPage?: number;
+  onPageChange: (page: number) => void;
+}
+
+export function Pagination({
+  totalCountOfRegisters,
+  currentPage = 1,
+  registersPerPage = 10,
+  onPageChange,
+}: PaginationProps) {
+  const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
+
   return (
     <Stack
       direction={['column', 'row']}
