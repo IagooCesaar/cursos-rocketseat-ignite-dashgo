@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -16,21 +17,35 @@ import {
   Spinner,
   Link,
 } from "@chakra-ui/react";
+
+import { GetServerSideProps } from "next";
 import NextLink from "next/link";
-import React, { useEffect, useState } from "react";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
+import { RiAddLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
-import { useUsers } from "../../services/hooks/useUsers";
+import { getUsers, useUsers, User } from "../../services/hooks/useUsers";
 import { api } from "../../services/api";
 import { queryClient } from "../../services/queryClient";
 
-export default function UserList() {
+interface UserListProps {
+  users: User[];
+  totalCount: number;
+}
+
+export default function UserList({
+  users,
+  totalCount
+}: UserListProps) {
   const [page, setPage] = useState(1);
-  const { data, isLoading, error, isFetching } = useUsers(page);
+  const { data, isLoading, error, isFetching } = useUsers(page, {
+    initialData: {
+      users,
+      totalCount
+    },
+  });
 
   async function handlePrefetchUser(userId: string) {
     await queryClient.prefetchQuery(['user', userId], async () => {
@@ -121,4 +136,14 @@ export default function UserList() {
       </Flex>
     </Box>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { users, totalCount } = await getUsers(1)
+  return {
+    props: {
+      users,
+      totalCount,
+    }
+  }
 }
