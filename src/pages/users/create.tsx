@@ -19,6 +19,7 @@ import { Input } from "../../components/Form/Input";
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
 import { api } from "../../services/api";
+import { queryClient } from "../../services/queryClient";
 
 type CreateUserFormData = {
   name: string;
@@ -52,6 +53,10 @@ export default function CreateUser() {
       }
     })
     return response.data.user;
+  }, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('users');
+    },
   });
 
   const { register, handleSubmit, formState } = useForm({
