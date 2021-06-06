@@ -43,6 +43,9 @@ export function Pagination({
         <strong>0</strong> - <strong>10</strong> de <strong>100</strong>
       </Box>
       <Stack direction='row' spacing='2' >
+        {currentPage > (1 + siblingsCount) && (
+          <PaginationItem pageNumber={1} />
+        )}
         {previousPages.length > 0 && previousPages.map(page => {
           return <PaginationItem key={page} pageNumber={page} />
         })}
@@ -52,6 +55,10 @@ export function Pagination({
         {nextPages.length > 0 && nextPages.map(page => {
           return <PaginationItem key={page} pageNumber={page} />
         })}
+
+        {(currentPage + siblingsCount) < lastPage && (
+          <PaginationItem pageNumber={lastPage} />
+        )}
 
 
       </Stack>
