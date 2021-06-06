@@ -43,10 +43,17 @@ export function Pagination({
         <strong>0</strong> - <strong>10</strong> de <strong>100</strong>
       </Box>
       <Stack direction='row' spacing='2' >
-        <PaginationItem pageNumber={1} isCurrent />
-        <PaginationItem pageNumber={2} />
-        <PaginationItem pageNumber={3} />
-        <PaginationItem pageNumber={4} />
+        {previousPages.length > 0 && previousPages.map(page => {
+          return <PaginationItem key={page} pageNumber={page} />
+        })}
+
+        <PaginationItem pageNumber={currentPage} isCurrent />
+
+        {nextPages.length > 0 && nextPages.map(page => {
+          return <PaginationItem key={page} pageNumber={page} />
+        })}
+
+
       </Stack>
 
     </Stack>
