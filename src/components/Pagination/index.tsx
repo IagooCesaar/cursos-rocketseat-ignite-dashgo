@@ -8,6 +8,8 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
+const siblingsCount = 1;
+
 function generatePagesArray(from: number, to: number) {
   return [new Array(to - from)].map((_, index) => {
     return from + index + 1;
