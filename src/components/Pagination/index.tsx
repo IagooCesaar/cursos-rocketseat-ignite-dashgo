@@ -24,6 +24,10 @@ export function Pagination({
 }: PaginationProps) {
   const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
 
+  const previousPage = currentPage > 1
+    ? generatePagesArray(currentPage - 1 - siblingsCount, currentPage - 1)
+    : [];
+
   return (
     <Stack
       direction={['column', 'row']}
