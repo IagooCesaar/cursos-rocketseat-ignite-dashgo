@@ -15,7 +15,7 @@ import {
   useBreakpointValue,
   Spinner
 } from "@chakra-ui/react";
-import Link from "next/link";
+import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
@@ -46,7 +46,7 @@ export default function UserList() {
               Usuários
               {!isLoading && isFetching && <Spinner size='sm' color='gray.500' ml='4' />}
             </Heading>
-            <Link href='/users/create' passHref>
+            <NextLink href='/users/create' passHref>
               <Button
                 as='a'
                 size='sm'
@@ -54,7 +54,7 @@ export default function UserList() {
                 colorScheme='pink'
                 leftIcon={<Icon as={RiAddLine} fontSize='20' />}
               >Criar novo</Button>
-            </Link>
+            </NextLink>
           </Flex>
           {isLoading ? (
             <Flex justify="center">
