@@ -88,7 +88,7 @@ export default function UserList() {
                           <Link color="purple.400">
                             <Text fontWeight='bold' >{user.name}</Text>
                           </Link>
-                          <Text fontSize='small' colr='gray.300' >{user.email}</Text>
+                          <Text fontSize='small' color='gray.300' >{user.email}</Text>
                         </Box>
                       </Td>
                       {isWideVersion && <Td>{user.createdAt}</Td>}
