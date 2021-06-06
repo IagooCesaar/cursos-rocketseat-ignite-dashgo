@@ -77,42 +77,20 @@ export default function UserList() {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  <Tr>
-                    <Td px={['4', '4', '6']}>
-                      <Checkbox colorScheme='pink' />
-                    </Td>
-                    <Td>
-                      <Box>
-                        <Text fontWeight='bold' >Iago César F. Nogueira</Text>
-                        <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
-                      </Box>
-                    </Td>
-                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
-                  </Tr>
-                  <Tr>
-                    <Td px={['4', '4', '6']}>
-                      <Checkbox colorScheme='pink' />
-                    </Td>
-                    <Td>
-                      <Box>
-                        <Text fontWeight='bold' >Iago César F. Nogueira</Text>
-                        <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
-                      </Box>
-                    </Td>
-                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
-                  </Tr>
-                  <Tr>
-                    <Td px={['4', '4', '6']}>
-                      <Checkbox colorScheme='pink' />
-                    </Td>
-                    <Td>
-                      <Box>
-                        <Text fontWeight='bold' >Iago César F. Nogueira</Text>
-                        <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
-                      </Box>
-                    </Td>
-                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
-                  </Tr>
+                  {data.users.map(user => (
+                    <Tr key={user.id}>
+                      <Td px={['4', '4', '6']}>
+                        <Checkbox colorScheme='pink' />
+                      </Td>
+                      <Td>
+                        <Box>
+                          <Text fontWeight='bold' >{user.name}</Text>
+                          <Text fontSize='small' colr='gray.300' >{user.email}</Text>
+                        </Box>
+                      </Td>
+                      {isWideVersion && <Td>{user.createdAt}</Td>}
+                    </Tr>
+                  ))}
                 </Tbody>
               </Table>
               <Pagination />
