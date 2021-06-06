@@ -27,6 +27,9 @@ export function Pagination({
   const previousPage = currentPage > 1
     ? generatePagesArray(currentPage - 1 - siblingsCount, currentPage - 1)
     : [];
+  const nextPage = currentPage < lastPage
+    ? generatePagesArray(currentPage, Math.min(currentPage + siblingsCount, lastPage))
+    : [];
 
   return (
     <Stack
