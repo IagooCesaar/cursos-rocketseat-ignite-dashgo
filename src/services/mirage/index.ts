@@ -3,7 +3,7 @@ import {
   Factory, 
   Model, 
   Response,
-  ActiveModelSerializer
+  ActiveModelSerializer  
 } from 'miragejs'
 import faker from 'faker';
 
