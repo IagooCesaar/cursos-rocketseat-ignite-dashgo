@@ -12,7 +12,8 @@ import {
   Tbody,
   Td,
   Text,
-  useBreakpointValue
+  useBreakpointValue,
+  Spinner
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -25,13 +26,11 @@ import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
-  const query = useQuery('users', async () => {
+  const { data, isLoading, error, } = useQuery('users', async () => {
     const response = await fetch('http://localhost:3000/api/users');
     const data = await response.json();
     return data;
   })
-
-  console.log({ query })
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -57,56 +56,68 @@ export default function UserList() {
               >Criar novo</Button>
             </Link>
           </Flex>
-          <Table colorScheme='whiteAlpha'>
-            <Thead>
-              <Tr>
-                <Th px={['4', '4', '6']} color='gray.300' width='8'>
-                  <Checkbox colorScheme='pink' />
-                </Th>
-                <Th>Usuários</Th>
-                {isWideVersion && <Th>Data de cadastro</Th>}
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td px={['4', '4', '6']}>
-                  <Checkbox colorScheme='pink' />
-                </Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight='bold' >Iago César F. Nogueira</Text>
-                    <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
-                  </Box>
-                </Td>
-                {isWideVersion && <Td>04 de Abril, 2021</Td>}
-              </Tr>
-              <Tr>
-                <Td px={['4', '4', '6']}>
-                  <Checkbox colorScheme='pink' />
-                </Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight='bold' >Iago César F. Nogueira</Text>
-                    <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
-                  </Box>
-                </Td>
-                {isWideVersion && <Td>04 de Abril, 2021</Td>}
-              </Tr>
-              <Tr>
-                <Td px={['4', '4', '6']}>
-                  <Checkbox colorScheme='pink' />
-                </Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight='bold' >Iago César F. Nogueira</Text>
-                    <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
-                  </Box>
-                </Td>
-                {isWideVersion && <Td>04 de Abril, 2021</Td>}
-              </Tr>
-            </Tbody>
-          </Table>
-          <Pagination />
+          {isLoading ? (
+            <Flex justify="center">
+              <Spinner />
+            </Flex>
+          ) : error ? (
+            <Flex justify="center">
+              <Text>Falha ao obter dados dos usuários</Text>
+            </Flex>
+          ) : (
+            <>
+              <Table colorScheme='whiteAlpha'>
+                <Thead>
+                  <Tr>
+                    <Th px={['4', '4', '6']} color='gray.300' width='8'>
+                      <Checkbox colorScheme='pink' />
+                    </Th>
+                    <Th>Usuários</Th>
+                    {isWideVersion && <Th>Data de cadastro</Th>}
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  <Tr>
+                    <Td px={['4', '4', '6']}>
+                      <Checkbox colorScheme='pink' />
+                    </Td>
+                    <Td>
+                      <Box>
+                        <Text fontWeight='bold' >Iago César F. Nogueira</Text>
+                        <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
+                      </Box>
+                    </Td>
+                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
+                  </Tr>
+                  <Tr>
+                    <Td px={['4', '4', '6']}>
+                      <Checkbox colorScheme='pink' />
+                    </Td>
+                    <Td>
+                      <Box>
+                        <Text fontWeight='bold' >Iago César F. Nogueira</Text>
+                        <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
+                      </Box>
+                    </Td>
+                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
+                  </Tr>
+                  <Tr>
+                    <Td px={['4', '4', '6']}>
+                      <Checkbox colorScheme='pink' />
+                    </Td>
+                    <Td>
+                      <Box>
+                        <Text fontWeight='bold' >Iago César F. Nogueira</Text>
+                        <Text fontSize='small' colr='gray.300' >iagocesar.sgs@gmail.com</Text>
+                      </Box>
+                    </Td>
+                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
+                  </Tr>
+                </Tbody>
+              </Table>
+              <Pagination />
+            </>
+          )}
         </Box>
       </Flex>
     </Box>
