@@ -24,10 +24,10 @@ export function Pagination({
 }: PaginationProps) {
   const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
 
-  const previousPage = currentPage > 1
+  const previousPages = currentPage > 1
     ? generatePagesArray(currentPage - 1 - siblingsCount, currentPage - 1)
     : [];
-  const nextPage = currentPage < lastPage
+  const nextPages = currentPage < lastPage
     ? generatePagesArray(currentPage, Math.min(currentPage + siblingsCount, lastPage))
     : [];
 
