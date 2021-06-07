@@ -52,7 +52,11 @@ export function makeServer() {
 
         const users = this.serialize(schema.all('user'))
           .users
-          //ordenação
+          .sort((a: User, b: User) => {
+            if (a.name > b.name) return 1;
+            if (a.name < b.name) return -1;
+            return 0;
+          })
           .slice(pageStart, pageEnd);
         return new Response(
           200,
