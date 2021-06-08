@@ -62,15 +62,17 @@ export default function CreateUser() {
     },
   });
 
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (data) => {
+    await createUser.mutateAsync(data);
+    router.push('/users')
+  }
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(createUserFormSchema)
   })
   const { errors, isSubmitting } = formState;
 
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (data) => {
-    await createUser.mutateAsync(data);
-    router.push('/users')
-  }
+
 
   return (
     <Box>
